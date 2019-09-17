@@ -7,19 +7,33 @@ module GabisGem
   	def initialize
   		@name = name
   	end
-  
+  	
+  	puts "Hello. What's your name?"
+  	name = gets.strip.to_s
+  	puts "\n#{name}, do you want to do your search on herbs or ailments?"
+  	
   	def get_started
-  		puts "Hello. What's your name?"
-  		name = gets.strip.to_s
-  		puts "\n#{name}, do you want to do your search on herbs or ailments?"
-  		herbs_or_ailments = gets.strip.to_s
+  		herbs_or_ailments = gets.strip.downcase.to_s
   		puts "Let's get started with the search on #{herbs_or_ailments}"
+  		if herbs_or_ailments == "herbs"
+  		  herbs = Herbs.new
+  		  herbs.which_herb
+  		elsif herbs_or_ailments == "ailments"
+  		  ailments = Ailments.new
+  		  ailments.which_ailment
+  		else
+  		  puts "Please, check your answer and spelling"
+  		  puts "Do you want to do your search on herbs or ailments?"
+  		  get_started
+  		end
   	end
   end
   
   class Herbs
+    attr_accessor :herb, :ailment
+    
   	@@list_herbs = ["anise", "borage", "dandelion", "turmeric"]
-  
+
   	def which_herb
   		puts "\nYou're needing information on which herb?"
   		herb = gets.strip.downcase
@@ -30,6 +44,7 @@ module GabisGem
   			which_herb
   		end
   	end
+  	
   end
 	
 	class Ailments
@@ -47,10 +62,4 @@ module GabisGem
 	end
 start = Start.new 
 start.get_started
-
-herbs = Herbs.new
-herbs.which_herb
-
-ailments = Ailments.new
-ailments.which_ailment
 end
