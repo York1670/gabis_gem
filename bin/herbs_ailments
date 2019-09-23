@@ -1,5 +1,11 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/gabis_gem"
+require "bundler/setup"
+require "../lib/gabis_gem.rb"
+
+puts "Hello. What's your name?"
+name = gets.strip.to_s
+puts "#{name}, would you like to do a search on herbs or ailments?"
 
 Start.new.get_started
+

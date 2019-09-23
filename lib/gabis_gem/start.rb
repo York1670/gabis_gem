@@ -1,15 +1,11 @@
 
 class Start
   	attr_accessor :name
+
+    def initialize
+      @name = name
+    end
   
-  	def initialize
-  		@name = name
-  	end
-  	
-  	puts "Hello. What's your name?"
-  	name = gets.strip.to_s
-    puts "\n#{name}, do you want to do your search on herbs or ailments?"
-  	
   	def get_started
   		herbs_or_ailments = gets.strip.downcase.to_s
   		puts "Let's get started with the search on #{herbs_or_ailments}"
