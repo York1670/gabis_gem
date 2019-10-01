@@ -5,6 +5,14 @@ class Start
     def initialize
       @name = name
     end
+
+  def hello
+    puts "Hello. What's your name?"
+    name = gets.strip.to_s
+    puts "#{name}, would you like to do a search on herbs or ailments?"
+    get_started
+  end
+
   
   	def get_started
   		herbs_or_ailments = gets.strip.downcase.to_s

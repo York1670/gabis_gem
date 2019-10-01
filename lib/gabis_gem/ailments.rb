@@ -1,13 +1,19 @@
 class Ailments
-  	@@list_ailments = ["cold", "heartburn", "IBS"]
-  
-  	def self.which_ailment
-  		puts "\nYou're search for herbs that will help which common ailment?"
-  		ailment = gets.strip.downcase
-    		if @@list_ailments.include? "#{ailment}"
-    			puts "I am sorry you're sick. Let's see if this helps"
-    		else
-    		  puts "Unable to find ailment.  You may need to see a doctor."
-    		end
-  	end
-	end
+  	herbs_ailments = {
+	"anise" => ["cold","digestion"], 
+	"borage" => ["menstrual","cold"], 
+	"dandelion" => ["cold"], 
+	"turmeric" => ["anti-inflammatory"]
+}
+
+  def self.which_ailment
+    puts "Which ailment do you need information for?"
+    common_ailment = gets.strip.downcase.to_s
+    herbs_ailments.map do |herb,ailments|
+      get_help = ailments.select {|ailment| ailment == common_ailment}
+      if get_help.size > 0
+      	puts herb
+      end
+    end
+  end
+end
