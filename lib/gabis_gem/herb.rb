@@ -1,4 +1,4 @@
- class Herb
+  class GabisGem::Herb
     attr_accessor :herb_name, :url, :medicinal_uses
     
     @@all = []

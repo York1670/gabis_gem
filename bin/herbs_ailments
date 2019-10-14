@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
 require "../lib/gabis_gem.rb"
 
 
-Start.new.hello
+GabisGem::Start.new.hello
 

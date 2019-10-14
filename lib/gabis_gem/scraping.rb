@@ -1,0 +1,3 @@
+class GabisGem::Scraping
+  
+end

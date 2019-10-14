@@ -1,5 +1,5 @@
 
-class Start
+class GabisGem::Start
   	attr_accessor :name
 
     def initialize
